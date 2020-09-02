@@ -8,8 +8,8 @@ Then, open a terminal and generate the ssh keys
 
 ```bash
 #At this point you may as well configure your git email and user id
-git config --global review.corvusrom.com.username <username you registered with>
-git config --global review.corvusrom.com.email <your email you registered with>
+git config --global gerrit.pixysos.com.com.username <username you registered with>
+git config --global gerrit.pixysos.com.email <your email you registered with>
 
 #Then to generate SSh keys
 ssh-keygen -t rsa -C "your@email.com"
