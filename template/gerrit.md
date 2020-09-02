@@ -39,3 +39,23 @@ git push ssh://superman@gerrit.pixysos.com:29418/PixysOS/frameworks_base HEAD:re
 ```
 
 Things you need here are your Username,Project name and the branch you committed the change!
+
+If you have to make some additions, repeat the steps without starting a new patch.
+Also use ```"git commit --amend"``` instead of ```"git commit -m"```. 
+Gerrit will recognize it as a new patchset. 
+
+Do keep in mind to NOT change the Change-ID.
+If you need to add changeid hooks, do this:
+```bash
+cd <project>
+scp -p -P 29418 <username>@gerrit.pixysos.com:hooks/commit-msg .git/hooks/
+```
+
+Or if you want to install the hook globally in all local projects, do this:
+```bash
+cd <rom source>
+repo forall -c 'gitdir=$(git rev-parse --git-dir); scp -p -P 29418 <username>@gerrit.pixysos.com:hooks/commit-msg ${gitdir}/hooks/'
+```
+
+Still unable to figure stuff out, do some reading here:
+https://gerrit-review.googlesource.com/Documentation/intro-user.html
